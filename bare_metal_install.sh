@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 #Parameters
-issuer="https://yourorg.oktapreview.com/oauth2/default"
-clientid=""
+issuer="https://$1.oktapreview.com/oauth2/default"
+clientid="$2"
 #
 #get the local IP address
 ipaddr=`ifconfig eth0 | grep "inet addr" | awk '{print $2}' | awk 'BEGIN{FS=":"};{print $2}'`
