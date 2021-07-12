@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 #Parameters
-issuer="https://delligatti.oktapreview.com/oauth2/default"
-clientid="0oa108c2e0ulBzf2n0h8"
+issuer="https://yourorg.oktapreview.com/oauth2/default"
+clientid=""
 #
 #get the local IP address
 ipaddr=`ifconfig eth0 | grep "inet addr" | awk '{print $2}' | awk 'BEGIN{FS=":"};{print $2}'`
