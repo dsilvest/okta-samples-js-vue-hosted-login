@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #Parameters
-issuer="https://$1.oktapreview.com/oauth2/default"
+issuer="$1/oauth2/default"
 clientid="$2"
 #
 #get the local IP address (for if app is only accessed from local VPC)
