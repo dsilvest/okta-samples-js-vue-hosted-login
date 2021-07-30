@@ -3,6 +3,12 @@
 #Parameters
 issuer="$1/oauth2/default"
 clientid="$2"
+if [ -z "$3" ] ; then
+   github="git clone https://github.com/okta/samples-js-vue"
+else
+   github="git clone $3"
+fi
+
 #
 #get the local IP address (for if app is only accessed from local VPC)
 #ipaddr=`ifconfig eth0 | grep "inet addr" | awk '{print $2}' | awk 'BEGIN{FS=":"};{print $2}'`
@@ -43,9 +49,8 @@ awk 'NR==166{gsub("AllowOverride None","AllowOverride All")}; {print $0}' /etc/a
 service apache2 restart
 #
 #start sample code install and configuration
-wget https://github.com/okta/samples-js-vue/archive/refs/heads/master.zip
-unzip master.zip
-cd samples-js-vue-master
+`$github`
+cd samples-js-vue
 echo "ISSUER=$issuer" > testenv
 echo "CLIENT_ID=$clientid" >> testenv
 cd okta-hosted-login
